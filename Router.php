@@ -1,11 +1,26 @@
 <?php
 
 class Router {
+    public array $methods = array("GET", "POST");
+    public array $routes = array();
+    public string $method;
     public string $request;
-    public array $routes = [];
 
     function __construct() {
         $this->request = $_SERVER['REQUEST_URI'];
+        $this->method = $_SERVER['REQUEST_METHOD'];
+    }
+
+    function __call($method, $args) {
+        $method = strtoupper($method);
+        if ($method != $this->method) return;
+        $key = array_search($method, $this->methods);
+        if ($key > -1) { // HTTP Method exists
+            list($route, $fn) = $args;
+            $this->routes[$this->format($route)] = $fn;
+        } else {
+            echo "HTTP Method not Allowed: " . $method . "\n";
+        }
     }
 
     public function get(string $uri, $method) : void {
@@ -14,7 +29,9 @@ class Router {
     }
 
     private function format($uri) : string {
-        return rtrim(strtolower($uri), "/");
+        $uri = rtrim(strtolower($uri), "/");
+        if ($uri === '') $uri = "/";
+        return $uri;
     }
 
     function __destruct() {
