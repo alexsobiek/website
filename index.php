@@ -1,17 +1,18 @@
 <?php
 
 include_once("./Router.php");
+include_once("./Page.php");
 
 $router = new Router();
 
 $router->get("/", function() {
-    echo "Homepage";
+    Page::get("home");
 });
 
 $router->post("/", function() {
     echo "POST";
 });
 
-$router->get("/page2", function() {
-    echo "Page 2";
+$router->get("*", function() {
+    echo "404";
 });
