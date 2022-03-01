@@ -7,7 +7,7 @@ class Page {
         $this->path = __DIR__ . "/views/" . $path . ".php";
     }
 
-    public static function get(string $path) {
+    public static function get(string $path) : void {
        $page = new Page($path);
        $page->render();
     }
@@ -18,7 +18,7 @@ class Page {
         else require(__DIR__ . "/views/template.php");
     }
 
-    public function getContent(): void {
+    public function getContent() : void {
         require($this->path);
         echo "\n";
     }
