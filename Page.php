@@ -22,4 +22,12 @@ class Page {
         require($this->path);
         echo "\n";
     }
+
+    public function getBaseURL() : string {
+        $port = '';
+        if (!in_array($_SERVER['SERVER_PORT'], [80, 443])) {
+            $port = ":$_SERVER[SERVER_PORT]";
+        }
+        return "//".$_SERVER['SERVER_NAME'].$port;
+    }
 }
