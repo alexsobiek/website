@@ -17,7 +17,7 @@ class Router {
         $key = array_search($method, $this->methods);
         if ($key > -1) { // HTTP Method exists
             list($route, $fn) = $args;
-;           $this->routes[$this->formatURI($route)] = $fn;
+            $this->routes[$this->formatURI($route)] = $fn;
         } else {
             echo "HTTP Method not Allowed: " . $method . "\n";
         }
