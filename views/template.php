@@ -29,7 +29,7 @@ $p = $page; // Simply so my IDE stops complaining about an unknown variable
                         <a class="nav-link" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="terminal-about-selector" aria-current="page" href="#">About</a>
+                        <a class="nav-link" id="terminal-about-selector" aria-current="page">About</a>
                     </li>
                 </ul>
             </div>
