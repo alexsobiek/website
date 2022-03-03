@@ -2,6 +2,8 @@
 include_once("./Router.php");
 class Page {
     private string $path;
+    public array $css = array();
+    public array $javascript = array();
 
     function __construct(string $path) {
         $this->path = __DIR__ . "/views/" . $path . ".php";
@@ -21,6 +23,14 @@ class Page {
     public function getContent() : void {
         require($this->path);
         echo "\n";
+    }
+
+    public function addCSS(string $path) : void {
+        $this->css[] = $path;
+    }
+
+    public function addJS(string $path) : void {
+        $this->javascript[] = $path;
     }
 
     public function getBaseURL() : string {
