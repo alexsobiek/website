@@ -5,9 +5,13 @@
     font-family: 'Roboto Mono', monospace;
 }
 
+#terminal .prompt {
+    display: block;
+}
+
 @media (max-width: 768px) {
     /* This is so the Welcome ASCII art will fit on smaller devices */
-    #terminal pre {
+    #terminal {
         font-size: 12px;
     }
 }
