@@ -17,11 +17,26 @@ $p = $page; // Simply so my IDE stops complaining about an unknown variable
     <?php } ?>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Alex Sobiek</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <?php
-    /** @var Page $page */
-    $page->getContent();
-    ?>
+    <!-- BEGIN PAGE CONTENT -->
+    <?php $page->getContent(); ?>
+    <!-- END PAGE CONTENT -->
+
     <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://kit.fontawesome.com/d30a29881e.js" crossorigin="anonymous"></script>
     <?php foreach($page->javascript as $script) { ?>
