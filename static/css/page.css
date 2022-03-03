@@ -6,3 +6,12 @@ body {
 .hidden {
     display: none;
 }
+
+.navbar-dark {
+    background: #000;
+}
+
+.nav-link:hover {
+    /* Necessary to show pointer over nav items that do not have an href attribute */
+    cursor: pointer;
+}
