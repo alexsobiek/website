@@ -1,7 +1,8 @@
-
 // Variables
 let consoleElement = document.getElementById("terminal")
 let motd = document.getElementById("motd");
+
+let aboutSelector = document.getElementById("terminal-about-selector");
 
 
 // Last login time
@@ -11,25 +12,87 @@ let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
 let timeStr = document.getElementById("motd-lastlogin");
 timeStr.innerText += `${days[time.getUTCDay()]} ${months[time.getUTCMonth()]} ${time.getUTCDate()} ${time.getUTCHours()}:${time.getUTCMinutes()}:${time.getUTCSeconds()} on ttys000`;
 
-/**
- * Gets a prompt element
- * @param directory Directory string
- * @returns {HTMLSpanElement}
- */
-function getPrompt(directory) {
-    let prompt = document.createElement("span");
-    prompt.classList.add("prompt");
-    prompt.innerText = `[asobiek@web01 ${directory}]$`;
-    return prompt;
-}
+let currentPrompt;
+let currentDirectory = "~"
 
 // Timing
-setTimeout(function() {
+setTimeout(function () {
     motd.classList.remove("hidden");
 
 }, 600);
 
-setTimeout(function() {
-    consoleElement.insertAdjacentElement("beforeend", getPrompt("~"));
+setTimeout(function () {
+    carriageReturn();
 }, 900);
 
+// Click listeners
+aboutSelector.addEventListener("click", function() {
+    type("cd ~/about && cat about.txt").then(() => {
+        currentDirectory = "~/about";
+        cat("about.txt");
+    });
+});
+
+/**
+ * Gets a prompt element
+ * @returns {HTMLSpanElement}
+ */
+function getPrompt() {
+    let prompt = document.createElement("span");
+    prompt.classList.add("prompt");
+    prompt.innerText = `[asobiek@web01 ${currentDirectory}]$ `;
+    currentPrompt = prompt;
+    return prompt;
+}
+
+/**
+ * Appends text to the current prompt
+ * @param text Text to "type"
+ * @returns {Promise<unknown>}
+ */
+function type(text) {
+    for (i = 0; i < text.length; i++) {
+        (function (i) {
+            setTimeout(function () {
+                currentPrompt.textContent += text.charAt(i);
+            }, i * 20);
+        }(i));
+    }
+    return pause(text.length * 20 + 500);
+}
+
+/**
+ * Prints the content of the given text file to the terminal
+ * @param file File to print
+ */
+function cat(file) {
+    let request = new XMLHttpRequest();
+    request.open('GET', `/static/text/${file}`, true);
+    request.send(null);
+    request.onreadystatechange = function () {
+        if (request.readyState === 4 && request.status === 200) {
+            if (request.getResponseHeader('Content-Type').indexOf("text") !== 1) {
+                let content = document.createElement("pre");
+                content.innerText = request.responseText;
+                consoleElement.insertAdjacentElement("beforeend", content);
+                carriageReturn();
+            }
+        }
+    }
+}
+
+/**
+ * Returns to the next line and creates a new prompt
+ */
+function carriageReturn() {
+    consoleElement.insertAdjacentElement("beforeend", getPrompt());
+}
+
+/**
+ * Creates a promise which pauses execution
+ * @param ms Time to pause for
+ * @returns {Promise<unknown>}
+ */
+function pause(ms) {
+    return new Promise(r => setTimeout(r, ms))
+}
