@@ -86,6 +86,7 @@ function cat(file) {
  */
 function carriageReturn() {
     consoleElement.insertAdjacentElement("beforeend", getPrompt());
+    window.scrollTo(0, document.body.scrollHeight);
 }
 
 /**
