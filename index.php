@@ -14,5 +14,5 @@ $router->post("/", function() {
 });
 
 $router->get("*", function() {
-    echo "404";
+    Page::get("404");
 });
