@@ -6,7 +6,10 @@ include_once("./Page.php");
 $router = new Router();
 
 $router->get("/", function() {
-    Page::get("home");
+    $page = new Page("home");
+    $page->addCSS("terminal.css");
+    $page->addJS("terminal.js");
+    $page->render();
 });
 
 $router->post("/", function() {

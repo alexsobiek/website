@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+#terminal {
+    margin: 1.5rem 1rem;
+    font-family: 'Roboto Mono', monospace;
+}
+
+@media (max-width: 768px) {
+    /* This is so the Welcome ASCII art will fit on smaller devices */
+    #terminal pre {
+        font-size: 12px;
+    }
+}
