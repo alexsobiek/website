@@ -81,7 +81,16 @@ function cat(file) {
         if (request.readyState === 4 && request.status === 200) {
             if (request.getResponseHeader('Content-Type').indexOf("text") !== 1) {
                 let content = document.createElement("pre");
-                content.innerText = request.responseText;
+                let text = request.responseText;
+                let links = text.match(/\[.*?\)/g);
+                if (links != null && links.length > 0) {
+                    for (let link of links) {
+                        let name = link.match(/\[(.*?)\]/)[1];
+                        let url = link.match(/\((.*?)\)/)[1];
+                        text = text.replace(link, `<a href="${url}" target="_blank">${name}</a>`)
+                    }
+                }
+                content.innerHTML = text;
                 consoleElement.insertAdjacentElement("beforeend", content);
                 carriageReturn();
             }
