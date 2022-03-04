@@ -3,6 +3,10 @@ body {
     color: #fff;
 }
 
+a {
+    text-decoration: none;
+}
+
 .hidden {
     display: none;
 }
