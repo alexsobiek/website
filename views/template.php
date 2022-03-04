@@ -31,6 +31,12 @@ $p = $page; // Simply so my IDE stops complaining about an unknown variable
                     <li class="nav-item">
                         <a class="nav-link" id="terminal-about-selector" aria-current="page">About</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="terminal-contact-selector" aria-current="page">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" aria-current="page" href="https://github.com/alexsobiek">GitHub</a>
+                    </li>
                 </ul>
             </div>
         </div>
