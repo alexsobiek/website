@@ -3,6 +3,7 @@ let consoleElement = document.getElementById("terminal")
 let motd = document.getElementById("motd");
 
 let aboutSelector = document.getElementById("terminal-about-selector");
+let contactSelector = document.getElementById("terminal-contact-selector");
 
 
 // Last login time
@@ -25,7 +26,7 @@ setTimeout(function () {
     carriageReturn();
 }, 900);
 
-setInterval(function() {
+setInterval(function () {
     if (currentPrompt != null) {
         if (currentPrompt.classList.contains("prompt-cursor")) currentPrompt.classList.remove("prompt-cursor");
         else currentPrompt.classList.add("prompt-cursor");
@@ -33,10 +34,17 @@ setInterval(function() {
 }, 500);
 
 // Click listeners
-aboutSelector.addEventListener("click", function() {
+aboutSelector.addEventListener("click", function () {
     type("cd ~/about && cat about.txt").then(() => {
         currentDirectory = "~/about";
         cat("about.txt");
+    });
+});
+
+contactSelector.addEventListener("click", function () {
+    type("cd ~/ && cat contact.txt").then(() => {
+        currentDirectory = "~/";
+        cat("contact.txt");
     });
 });
 
