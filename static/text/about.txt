@@ -1,5 +1,25 @@
+
 ##########################
 ##       About Me       ##
 ##########################
 
-This is an example about me!
+===================== Intrests =====================
+Layer 7 Network Protocols, High-performance
+computing, Compiler and Interpreter design
+
+=============== Programming Languages ==============
+Java, C, JavaScript, TypeScript, PHP, Rust
+
+==================== Frameworks ====================
+Netty, Socket.io, Express, Electron
+
+==================== Web Design ====================
+HTML5, CSS3, SASS, Bootstrap
+
+===================== Education ====================
+B.S. in Computer Science, Loyola University Chicago
+2020 - Present (in progress), 3.8 GPA
+
+Courses: Computer Systems, Data Structures, Computer
+Security, Network Security, Software Quality and
+Testing, Client-side Design and Development
