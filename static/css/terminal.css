@@ -16,6 +16,6 @@
 @media (max-width: 768px) {
     /* This is so the Welcome ASCII art will fit on smaller devices */
     #terminal {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 }
