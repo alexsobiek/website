@@ -7,6 +7,10 @@ body {
     display: none;
 }
 
+.hide-after::after {
+    display: none;
+}
+
 .navbar-dark {
     background: #000;
 }

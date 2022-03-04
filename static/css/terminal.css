@@ -9,6 +9,10 @@
     display: block;
 }
 
+#terminal .prompt-cursor::after {
+    content: "\2588"
+}
+
 @media (max-width: 768px) {
     /* This is so the Welcome ASCII art will fit on smaller devices */
     #terminal {

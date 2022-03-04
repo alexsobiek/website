@@ -25,6 +25,13 @@ setTimeout(function () {
     carriageReturn();
 }, 900);
 
+setInterval(function() {
+    if (currentPrompt != null) {
+        if (currentPrompt.classList.contains("prompt-cursor")) currentPrompt.classList.remove("prompt-cursor");
+        else currentPrompt.classList.add("prompt-cursor");
+    }
+}, 500);
+
 // Click listeners
 aboutSelector.addEventListener("click", function() {
     type("cd ~/about && cat about.txt").then(() => {
@@ -41,6 +48,7 @@ function getPrompt() {
     let prompt = document.createElement("span");
     prompt.classList.add("prompt");
     prompt.innerText = `[asobiek@web01 ${currentDirectory}]$ `;
+    if (currentPrompt != null) currentPrompt.classList.remove("prompt-cursor");
     currentPrompt = prompt;
     return prompt;
 }
