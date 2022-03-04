@@ -12,10 +12,6 @@ $router->get("/", function() {
     $page->render();
 });
 
-$router->post("/", function() {
-    echo "POST";
-});
-
 $router->get("*", function() {
     Page::get("404");
 });
