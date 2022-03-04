@@ -47,7 +47,6 @@ $p = $page; // Simply so my IDE stops complaining about an unknown variable
     <!-- END PAGE CONTENT -->
 
     <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://kit.fontawesome.com/d30a29881e.js" crossorigin="anonymous"></script>
     <?php foreach($page->javascript as $script) { ?>
     <script type="text/javascript" src="/static/js/<?php echo $script; ?>"></script>
     <?php } ?>
