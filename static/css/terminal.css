@@ -13,6 +13,10 @@
     content: "\2588"
 }
 
+#terminal pre {
+    font-weight: 600;
+}
+
 @media (max-width: 768px) {
     /* This is so the Welcome ASCII art will fit on smaller devices */
     #terminal {
