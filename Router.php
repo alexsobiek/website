@@ -24,7 +24,7 @@ class Router {
     }
 
     public static function formatURI(string $uri) : string {
-        if (str_contains($uri, "?")) $uri = explode($uri, "?")[0]; // Strip out parameters
+        if (strpos($uri, '?') !== false) $uri = explode("?", $uri)[0]; // Strip out parameters
         $uri = rtrim(strtolower($uri), "/");
         if ($uri === "" || $uri === "?") $uri = "/";
         return $uri;

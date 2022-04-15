@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 #terminal {
-    margin: 1.5rem 1rem;
+    max-width: 576px;
+    margin: 1.5rem auto;
     font-family: 'Roboto Mono', monospace;
 }
 
@@ -13,9 +14,17 @@
     content: "\2588"
 }
 
+#terminal pre {
+    font-weight: 600;
+}
+
 @media (max-width: 768px) {
     /* This is so the Welcome ASCII art will fit on smaller devices */
     #terminal {
         font-size: 0.75rem;
     }
+}
+
+@media (min-width: 992px) {
+
 }

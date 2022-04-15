@@ -5,6 +5,10 @@ let motd = document.getElementById("motd");
 let aboutSelector = document.getElementById("terminal-about-selector");
 let contactSelector = document.getElementById("terminal-contact-selector");
 
+const menuToggle = document.getElementById('navbarSupportedContent');
+const bsCollapse = new bootstrap.Collapse(menuToggle, {
+    toggle: false
+});
 
 // Last login time
 let time = new Date(new Date().getTime() - Math.floor(Math.random() * 100000000)); // Pick a random, recent time to show for last login
@@ -35,6 +39,7 @@ setInterval(function () {
 
 // Click listeners
 aboutSelector.addEventListener("click", function () {
+    bsCollapse.hide();
     type("cd ~/about && cat about.txt").then(() => {
         currentDirectory = "~/about";
         cat("about.txt");
@@ -42,6 +47,7 @@ aboutSelector.addEventListener("click", function () {
 });
 
 contactSelector.addEventListener("click", function () {
+    bsCollapse.hide();
     type("cd ~/ && cat contact.txt").then(() => {
         currentDirectory = "~/";
         cat("contact.txt");

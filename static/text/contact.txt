@@ -3,5 +3,5 @@
 ##        Contact       ##
 ##########################
 
-Email: [alex@alexsobiek.com](emailto:alex@alexsobiek.com)
+Email: [alex@alexsobiek.com](mailto:alex@alexsobiek.com)
 Keybase: [keybase.io/alexsobiek](https://keybase.io/alexsobiek)

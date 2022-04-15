@@ -3,7 +3,7 @@
 ##       About Me       ##
 ##########################
 
-===================== Intrests =====================
+==================== Interests =====================
 Layer 7 Network Protocols, High-performance
 computing, Compiler and Interpreter design
 
