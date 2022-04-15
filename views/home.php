@@ -1,7 +1,6 @@
 <div class="container">
     <div id="terminal">
         <div id="motd" class="hidden">
-            <p>Linux web01 5.16.11-ARCH</p>
             <p id="motd-lastlogin">Last Login: </p>
             <pre>
  _    _      _
